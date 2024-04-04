@@ -1,0 +1,1044 @@
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>CatLive</title>
+          <style>
+                    function currentSlide(n) {
+                              showSlides(slideIndex=n - 1);
+                    } 
+                    function showSlides(n) {
+                              var i;
+                              var slides=document.getElementsByClassName("mySlides");
+                              var dots=document.getElementsByClassName("dot");
+
+                              if (n >=slides.length) {
+                                        slideIndex=0;
+                              }
+
+                              if (n < 0) {
+                                        slideIndex=slides.length - 1;
+                              }
+
+                              for (i=0; i < slides.length; i++) {
+                                        slides[i].style.display="none";
+                              }
+
+                              for (i=0; i < dots.length; i++) {
+                                        dots[i].className=dots[i].className.replace(" active", "");
+                              }
+
+                              slides[slideIndex].style.display="block";
+                              dots[slideIndex].className+=" active";
+                    }
+
+                    /* Réinitialisation des styles */
+                    * {
+                              margin: 0;
+                              padding: 0;
+                              box-sizing: border-box;
+                    }
+
+                    /* Styles généraux */
+                    body {
+                              font-family: Arial, sans-serif;
+                              margin: 0;
+                              padding: 0;
+                              background-color: #f5f5f5;
+                              color: #333;
+                    }
+
+                    header {
+                              background-color: #333;
+                              color: #fff;
+                              text-align: center;
+                              padding: 20px;
+                    }
+
+                    header h1 {
+                              background-color: #fff;
+                              color: #663399;
+                              padding: 10px;
+                              border-radius: 5px;
+                              display: inline-block;
+                              margin-right: 20px;
+                    }
+
+                    nav ul {
+                              list-style-type: none;
+                              padding: 0;
+                              text-align: center;
+                              margin: 0;
+                              margin-top: 20px;
+                    }
+
+                    nav ul li {
+                              display: inline;
+                              margin-right: 20px;
+                              margin-bottom: 10px;
+                    }
+
+                    nav ul li a {
+                              text-decoration: none;
+                              color: #fff;
+                              font-weight: bold;
+                    }
+
+                    main {
+                              padding: 20px;
+                              display: flex;
+                              flex-direction: column;
+                              align-items: center;
+                    }
+
+                    .container {
+                              display: grid;
+                              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                              gap: 20px;
+                              max-width: 1200px;
+                              margin: 20px auto;
+                              padding: 20px;
+                    }
+
+                    .product {
+                              background-color: #fff;
+                              border-radius: 5px;
+                              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                              padding: 20px;
+                              text-align: center;
+                    }
+
+                    .product img {
+                              width: auto;
+                              max-height: auto;
+                              object-fit: cover;
+                              border-radius: 5px;
+                              margin-bottom: 10px;
+                    }
+
+                    .product h2 {
+                              color: #333;
+                              font-size: 20px;
+                              margin-bottom: 10px;
+                    }
+
+                    .product p {
+                              color: #666;
+                              margin-bottom: 15px;
+                    }
+
+                    .price {
+                              font-size: 24px;
+                              color: #ff4500;
+                              margin-bottom: 10px;
+                    }
+
+                    button {
+                              background-color: #007bff;
+                              color: #fff;
+                              border: none;
+                              padding: 10px 20px;
+                              border-radius: 5px;
+                              cursor: pointer;
+                              transition: background-color 0.3s ease;
+                    }
+
+                    button:hover {
+                              background-color: #0056b3;
+                    }
+
+                    .star {
+                              color: #ffcc00;
+                              font-size: 24px;
+                              margin: 0 2px;
+                    }
+
+                    .logo {
+                              position: absolute;
+                              top: 20px;
+                              left: 20px;
+                              z-index: 9999;
+                    }
+
+                    /* Ajustements de style pour le logo */
+                    .logo img {
+                              width: 150px;
+                              height: auto;
+                              border-radius: 50%;
+                              border: 3px solid #fff;
+                              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .container {
+                              max-width: 1000px;
+                              margin: auto;
+                              overflow: hidden;
+                              position: relative;
+                    }
+
+                    .product-slider {
+                              display: flex;
+                              transition: transform 0.5s ease-in-out;
+                    }* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styles généraux */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+                    .slide {
+                              flex: 0 0 auto;
+                              width: 100%;
+                    }
+
+                    .slide img {
+                              width: 100%;
+                              height: auto;
+                    }
+                     footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .activation-links a {
+            margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .activation-links a:hover {
+            color: #ffcc00;
+        }
+
+        .review-bar {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+/* Ajout d'espace entre les produits */
+.product-slider .slide {
+    margin-right: 20px; /* Espace à droite de chaque produit */
+}
+
+/* Pour le dernier produit dans chaque slider, supprimez la marge droite pour éviter un espace excessif */
+.product-slider .slide:last-child {
+    margin-right: 0;
+}
+
+                    .prev,
+                    .next {
+                              position: absolute;
+                              top: 50%;
+                              transform: translateY(-50%);
+                              background-color: rgba(0, 0, 0, 0.5);
+                              color: #fff;
+                              border: none;
+                              cursor: pointer;
+                              padding: 10px;
+                              font-size: 20px;
+                    }
+
+                    .prev {
+                              left: 0;
+                    }
+
+                    .next {
+                              right: 0;
+                    }
+
+                    * {
+                              margin: 0;
+                              padding: 0;
+                              box-sizing: border-box;
+                    }
+
+                    .dot {
+                              height: 15px;
+                              width: 15px;
+                              background-color: #bbb;
+                              border-radius: 50%;
+                              display: inline-block;
+                              margin: 0 5px;
+                              cursor: pointer;
+                    }
+
+                    .dot.active {
+                              background-color: #717171;
+                    }
+
+                    .review-bar {
+                              margin-top: 20px;
+                              text-align: center;
+                    }
+
+                    .star {
+                              color: #ffcc00;
+                              font-size: 24px;
+                              margin: 0 2px;
+                    }
+
+                    body {
+                              font-family: Arial, sans-serif;
+                              background-color: #f5f5f5;
+                              color: #333;
+                    }
+
+                    .container {
+                              display: grid;
+                              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                              gap: 20px;
+                              max-width: 1200px;
+                              margin: 20px auto;
+                              padding: 20px;
+                              overflow: hidden;
+                              position: relative;
+                    }
+
+                    .product-slider {
+                              display: flex;
+                              transition: transform 0.5s ease-in-out;
+                    }
+
+                    .slide {
+                              flex: 0 0 auto;
+                              width: 100%;
+                    }
+
+                    .slide img {
+                              width: auto;
+                              max-height: auto;
+                              object-fit: cover;
+                              border-radius: 5px;
+                              margin-bottom: 10px;
+                    }
+
+                    .prev,
+                    .next {
+                              position: absolute;
+                              top: 50%;
+                              transform: translateY(-50%);
+                              background-color: rgba(0, 0, 0, 0.5);
+                              color: #fff;
+                              border: none;
+                              cursor: pointer;
+                              padding: 10px;
+                              font-size: 20px;
+                    }
+
+                    .prev {
+                              left: 0;
+                    }
+
+                    .next {
+                              right: 0;
+                    }
+                       .container {
+        width: 80%;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+    }
+    .product-slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+        flex: 0 0 100%;
+        text-align: center;
+        padding: 20px;
+    }
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        text-decoration: none;
+    }
+    .prev {
+        left: 0;
+    }
+    .next {
+        right: 0;
+    }
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 98.25%;
+    text-align: center;
+    padding: 20px;
+}
+
+.slide img {
+    width:auto;
+    max-height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-decoration: none;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.activation-links a {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.activation-links a:hover {
+    color: #ffcc00;
+}
+slide {
+    flex: 0 0 calc(33.33% - 20px); /* Utilisation de calc pour calculer la largeur avec espace */
+    margin: 10px; /* Ajout de marge autour des produits */
+    text-align: center;
+    padding: 20px;
+}
+
+.review-bar {
+    margin-top: 20px;
+    text-align: center;
+}
+.container {
+        position: relative;
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        text-decoration: none;
+    }
+
+    .prev:before {
+        content: "prev";
+    }
+
+    .next:before {
+        content: "next";
+    }
+.star {
+    color: #ffcc00;
+    font-size: 24px;
+    margin: 0 2px;
+}
+          </style>
+</head>
+<body>
+          <header>
+                    <div class="logo">
+                              <img src="images/catlive18.jpg" alt="CatLive Logo">
+                    </div>
+                    <h1>Shopping with CATLIVE🐱is a fun adventure</h1>
+                    <nav>
+                              <ul>
+                                        <li>
+                                                  <a href="catlive.html">Home</a>
+                                        </li>
+                                        <li>
+                                                  <a href="adoption.html">Adoption</a>
+                                        </li>
+                                        <li>
+                                                  <a href="food.html">Food</a>
+                                        </li>
+                                        <li>
+                                                  <a href="health.html">Health</a>
+                                        </li>
+                                        <li>
+                                                  <a href="education.html">Education</a>
+                                        </li>
+                                        <li>
+                                                  <a href="everyday_life.html">Everyday Life</a>
+                                        </li>
+                                        <li>
+                                                  <a href="contact.html">Contact Us</a>
+                                        </li>
+                              </ul>
+                    </nav>
+          </header><button onclick="afficherPanier()">Voir le panier</button>
+          <div class="container" style="margin-bottom: 300px;">
+    <div class="product-slider" id="slider1">
+                              <div class="slide">
+                                        <img src="images/product1.jpg.jpg" alt="Product 1">
+                                        <h2>Product 1</h2>
+                                        <p>Description du produit 1.</p>
+                                        <p class="price">$50</p>
+                                        <button onclick="acheterProduit('Product 1')">Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product2.jpg.jpg" alt="Product 2">
+                                        <h2>Product 2</h2>
+                                        <p>Description du produit 2.</p>
+                                        <p class="price">$50</p>
+                                        <button onclick="acheterProduit('Product 2')">Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product3.jpg.jpg" alt="Product 3">
+                                        <h2>Product 3</h2>
+                                        <p>Description du produit 3.</p>
+                                        <p class="price">$50</p>
+                                        <button onclick="acheterProduit('Product 3')">Acheter</button>
+                              </div>
+                <div class="slide">
+                                        <img src="images/product4.jpg.jpg" alt="Product 4">
+                                        <h2>Product 4</h2>
+                                        <p>Description du produit 4.</p>
+                                        <p class="price">$50</p>
+                                        <button onclick="acheterProduit('Product 4')">Acheter</button>
+                              </div>
+                <div class="slide">
+                                        <img src="images/product5.jpg.jpg" alt="Product 5">
+                                        <h2>Product 5</h2>
+                                        <p>Description du produit 5.</p>
+                                        <p class="price">$50</p>
+                                        <button onclick="acheterProduit('Product 5')">Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product6.jpg.jpg" alt="Product 6">
+                                        <h2>Product 6</h2>
+                                        <p>Description du produit 6.</p>
+                                        <p class="price">$60</p>
+                                        <button onclick="acheterProduit('Product 6')">Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product7.jpg.jpg" alt="Product 7">
+                                        <h2>Product 7</h2>
+                                        <p>Description du produit 7.</p>
+                                        <p class="price">$70</p>
+                                        <button onclick="acheterProduit('Product 7')">Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product8.jpg.jpg" alt="Product 8">
+                                        <h2>Product 8</h2>
+                                        <p>Description du produit 8.</p>
+                                        <p class="price">$80</p>
+                                        <button onclick="acheterProduit('Product 8')">Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product9.jpg.jpg" alt="Product 9">
+                                        <h2>Product 9</h2>
+                                        <p>Description du produit 9.</p>
+                                        <p class="price">$59</p>
+                                       <button onclick="acheterProduit('Product 9')">Acheter</button>
+                              </div>
+                               <div class="slide">
+                                        <img src="images/product10.jpg.jpg" alt="Product 10">
+                                        <h2>Product 10</h2>
+                                        <p>Description du produit 10.</p>
+                                        <p class="price">$90</p>
+                                        <button onclick="acheterProduit('Product 10')">Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="images/product11.jpg.jpg" alt="Product 11">
+                                        <h2>Product 11</h2>
+                                        <p>Description du produit 11.</p>
+                                        <p class="price">$79</p>
+                                        <button onclick="acheterProduit('Product 11')">Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="product12.jpg.jpg" alt="Product 12">
+                                        <h2>Product 12</h2>
+                                        <p>Description du produit 12.</p>
+                                        <p class="price">$69</p>
+                                        <button onclick="acheterProduit('Product 12')">Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="images/product13.jpg.jpg" alt="Product 13">
+                                        <h2>Product 13</h2>
+                                        <p>Description du produit 13.</p>
+                                        <p class="price">$99</p>
+                                        <button onclick="acheterProduit('Product 13')">Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="product14.jpg.jpg" alt="Product 14">
+                                        <h2>Product 14</h2>
+                                        <p>Description du produit 14.</p>
+                                        <p class="price">$89</p>
+                                        <button onclick="acheterProduit('Product 14')">Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product15.jpg.jpg" alt="Product 15">
+                                        <h2>Product 15</h2>
+                                        <p>Description du produit 15.</p>
+                                        <p class="price">$99</p>
+                                        <button onclick="acheterProduit('Product 15')">Acheter</button>
+                              </div>
+                    </div>
+    <a class="prev" onclick="moveSlide('slider1', -1)">&#10094;</a>
+    <a class="next" onclick="moveSlide('slider1', 1)">&#10095;</a>
+</div>
+
+         <div class="container" style="margin-bottom: 300px;">
+    <div class="product-slider" id="slider2">
+                              <div class="slide">
+                                        <img src="images/product16.jpg" alt="Product 16">
+                                        <h2>Product 1</h2>
+                                        <p>Description du produit 16.</p>
+                                        <p class="price">$30</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product17.jpg.jpg" alt="Product 17">
+                                        <h2>Product 2</h2>
+                                        <p>Description du produit 17.</p>
+                                        <p class="price">$28</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product18.jpg.jpg" alt="Product 18">
+                                        <h2>Product 3</h2>
+                                        <p>Description du produit 18.</p>
+                                        <p class="price">$53</p>
+                                        <button>Acheter</button>
+                              </div>
+                <div class="slide">
+                                        <img src="images/product19.jpg.jpg" alt="Product 19">
+                                        <h2>Product 4</h2>
+                                        <p>Description du produit 19.</p>
+                                        <p class="price">$57</p>
+                                        <button>Acheter</button>
+                              </div>
+                <div class="slide">
+                                        <img src="images/product20.jpg.jpg" alt="Product 20">
+                                        <h2>Product 5</h2>
+                                        <p>Description du produit 20.</p>
+                                        <p class="price">$59</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product21.jpg" alt="Product 21">
+                                        <h2>Product 6</h2>
+                                        <p>Description du produit 21.</p>
+                                        <p class="price">$60</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product22.jpg.jpg" alt="Product 22">
+                                        <h2>Product 7</h2>
+                                        <p>Description du produit 22.</p>
+                                        <p class="price">$70</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product23.jpg.jpg" alt="Product 23">
+                                        <h2>Product 8</h2>
+                                        <p>Description du produit 23.</p>
+                                        <p class="price">$80</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product24.jpg.jpg" alt="Product 24">
+                                        <h2>Product 9</h2>
+                                        <p>Description du produit 24.</p>
+                                        <p class="price">$59</p>
+                                        <button>Acheter</button>
+                              </div>
+                               <div class="slide">
+                                        <img src="images/product25.jpg.jpg" alt="Product 25">
+                                        <h2>Product 10</h2>
+                                        <p>Description du produit 25.</p>
+                                        <p class="price">$90</p>
+                                        <button>Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="images/product26.jpg.jpg" alt="Product 26">
+                                        <h2>Product 11</h2>
+                                        <p>Description du produit 26.</p>
+                                        <p class="price">$79</p>
+                                        <button>Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="images/product27.jpg.jpg" alt="Product 27">
+                                        <h2>Product 12</h2>
+                                        <p>Description du produit 27.</p>
+                                        <p class="price">$69</p>
+                                        <button>Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="images/product28.jpg.jpg" alt="Product 28">
+                                        <h2>Product 13</h2>
+                                        <p>Description du produit 28.</p>
+                                        <p class="price">$99</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product29.jpg.jpg" alt="Product 29">
+                                        <h2>Product 14</h2>
+                                        <p>Description du produit 29.</p>
+                                        <p class="price">$89</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide"><img src="images/product30.jpg.jpg" alt="Product 30">
+                                        <h2>Product 15</h2>
+                                        <p>Description du produit 30.</p>
+                                        <p class="price">$99</p>
+                                        <button>Acheter</button>
+                              </div>
+                   </div>
+    <a class="prev" onclick="moveSlide('slider2', -1)">&#10094;</a>
+    <a class="next" onclick="moveSlide('slider2', 1)">&#10095;</a>
+</div>
+ <div class="container" style="margin-bottom: 300px;">
+    <div class="product-slider" id="slider3">
+                              <div class="slide">
+                                        <img src="images/product31.jpg.jpg" alt="Product 31">
+                                        <h2>Product 1</h2>
+                                        <p>Description du produit 31.</p>
+                                        <p class="price">$50</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product32.jpg.jpg" alt="Product 32">
+                                        <h2>Product 2</h2>
+                                        <p>Description du produit 32.</p>
+                                        <p class="price">$50</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product33.jpg.jpg" alt="Product 33">
+                                        <h2>Product 3</h2>
+                                        <p>Description du produit 33.</p>
+                                        <p class="price">$50</p>
+                                        <button>Acheter</button>
+                              </div>
+                <div class="slide">
+                                        <img src="images/product34.jpg.jpg" alt="Product 34">
+                                        <h2>Product 4</h2>
+                                        <p>Description du produit 34.</p>
+                                        <p class="price">$50</p>
+                                        <button>Acheter</button>
+                              </div>
+                <div class="slide">
+                                        <img src="images/product35.jpg.jpg" alt="Product 35">
+                                        <h2>Product 5</h2>
+                                        <p>Description du produit 35.</p>
+                                        <p class="price">$50</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product36.jpg.jpg" alt="Product 36">
+                                        <h2>Product 6</h2>
+                                        <p>Description du produit 336.</p>
+                                        <p class="price">$60</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product37.jpg.jpg" alt="Product 37">
+                                        <h2>Product 7</h2>
+                                        <p>Description du produit 37.</p>
+                                        <p class="price">$70</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product38.jpg.jpg" alt="Product 38">
+                                        <h2>Product 8</h2>
+                                        <p>Description du produit 38.</p>
+                                        <p class="price">$80</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product39.jpg.jpg" alt="Product 39">
+                                        <h2>Product 9</h2>
+                                        <p>Description du produit 39.</p>
+                                        <p class="price">$59</p>
+                                        <button>Acheter</button>
+                              </div>
+                               <div class="slide">
+                                        <img src="images/product40.jpg.jpg" alt="Product 40">
+                                        <h2>Product 10</h2>
+                                        <p>Description du produit 40.</p>
+                                        <p class="price">$90</p>
+                                        <button>Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="images/product41.jpg.jpg" alt="Product 41">
+                                        <h2>Product 11</h2>
+                                        <p>Description du produit 41.</p>
+                                        <p class="price">$79</p>
+                                        <button>Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="images/product42.jpg.jpg" alt="Product 42">
+                                        <h2>Product 12</h2>
+                                        <p>Description du produit 42.</p>
+                                        <p class="price">$69</p>
+                                        <button>Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="images/product43.jpg.jpg" alt="Product 43">
+                                        <h2>Product 13</h2>
+                                        <p>Description du produit 43.</p>
+                                        <p class="price">$99</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product44.jpg.jpg" alt="Product 44">
+                                        <h2>Product 14</h2>
+                                        <p>Description du produit44.</p>
+                                        <p class="price">$89</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product45.jpg.jpg" alt="Product 45">
+                                        <h2>Product 15</h2>
+                                        <p>Description du produit 15.</p>
+                                        <p class="price">$99</p>
+                                        <button>Acheter</button>
+                              </div>
+                     </div>
+        <a class="prev" onclick="moveSlide('slider3', -1)">&#10094;</a>
+        <a class="next" onclick="moveSlide('slider3', 1)">&#10095;</a>
+    </div>
+         <div class="container" style="margin-bottom: 300px;">
+    <div class="product-slider" id="slider4">
+                               <div class="slide">
+                                        <img src="images/product1.jpg.jpg" alt="Product 1">
+                                        <h2>Product 1</h2>
+                                        <p>Description du produit 1.</p>
+                                        <p class="price">$50</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product2.jpg.jpg" alt="Product 2">
+                                        <h2>Product 2</h2>
+                                        <p>Description du produit 2.</p>
+                                        <p class="price">$50</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product3.jpg.jpg" alt="Product 3">
+                                        <h2>Product 3</h2>
+                                        <p>Description du produit 3.</p>
+                                        <p class="price">$50</p>
+                                        <button>Acheter</button>
+                              </div>
+                <div class="slide">
+                                        <img src="product4.jpg.jpg" alt="Product 4">
+                                        <h2>Product 4</h2>
+                                        <p>Description du produit 4.</p>
+                                        <p class="price">$50</p>
+                                        <button>Acheter</button>
+                              </div>
+                <div class="slide">
+                                        <img src="images/product5.jpg.jpg" alt="Product 5">
+                                        <h2>Product 5</h2>
+                                        <p>Description du produit 5.</p>
+                                        <p class="price">$50</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product6.jpg.jpg" alt="Product 6">
+                                        <h2>Product 6</h2>
+                                        <p>Description du produit 6.</p>
+                                        <p class="price">$60</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product7.jpg.jpg" alt="Product 7">
+                                        <h2>Product 7</h2>
+                                        <p>Description du produit 7.</p>
+                                        <p class="price">$70</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product8.jpg.jpg" alt="Product 8">
+                                        <h2>Product 8</h2>
+                                        <p>Description du produit 8.</p>
+                                        <p class="price">$80</p>
+                                        <button>Acheter</button>
+                              </div>
+                              <div class="slide">
+                                        <img src="images/product9.jpg.jpg" alt="Product 9">
+                                        <h2>Product 9</h2>
+                                        <p>Description du produit 9.</p>
+                                        <p class="price">$59</p>
+                                        <button>Acheter</button>
+                              </div>
+                               <div class="slide">
+                                        <img src="images/product10.jpg.jpg" alt="Product 10">
+                                        <h2>Product 10</h2>
+                                        <p>Description du produit 10.</p>
+                                        <p class="price">$90</p>
+                                        <button>Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="images/product11.jpg.jpg" alt="Product 11">
+                                        <h2>Product 11</h2>
+                                        <p>Description du produit 11.</p>
+                                        <p class="price">$79</p>
+                                        <button>Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="images/product12.jpg.jpg" alt="Product 12">
+                                        <h2>Product 12</h2>
+                                        <p>Description du produit 12.</p>
+                                        <p class="price">$69</p>
+                                        <button>Acheter</button>
+                              </div>
+               <div class="slide">
+                                        <img src="images/product13.jpg.jpg" alt="Product 13">
+                                        <h2>Product 13</h2>
+                                        <p>Description du produit 13.</p>
+                                        <p class="price">$99</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product14.jpg.jpg" alt="Product 14">
+                                        <h2>Product 14</h2>
+                                        <p>Description du produit 14.</p>
+                                        <p class="price">$89</p>
+                                        <button>Acheter</button>
+                              </div>
+              <div class="slide">
+                                        <img src="images/product15.jpg.jpg" alt="Product 15">
+                                        <h2>Product 15</h2>
+                                        <p>Description du produit 15.</p>
+                                        <p class="price">$99</p>
+                                        <button>Acheter</button>
+                              </div>
+                    </div>
+    <a class="prev" onclick="moveSlide('slider4', -1)">&#10094;</a>
+    <a class="next" onclick="moveSlide('slider4', 1)">&#10095;</a>
+</div>
+
+          <footer>
+                    <div class="activation-links">
+                              <p> Useful links</p>
+                              <a href="https://www.facebook.com/people/Cat-Ferlive/pfbid0BdmEDU352LKqiFBYQrW5zzyQsF18MJd2dpREAuuG2qNqA2HmZxmCKz5887y6x82Rl/">Facebook</a>
+                              <a href="https://www.instagram.com/catlive889/">Instagram</a>
+                              <a href="https://www.youtube.com/@josef-jebril">Youtube</a>
+                    </div>
+                    <p>TEL +212 0666812087 +212 0687004842 ---🐱--- catlive889@gmail.com</p>
+                    <p>&copy; 2024 CatLive</p>
+          </footer>
+<script>
+   // Déclaration des variables globales
+const sliders = document.querySelectorAll('.product-slider');
+
+// Fonction pour déplacer les slides d'un diaporama spécifique
+function moveSlide(slider, n) {
+    const slides = slider.querySelectorAll('.slide');
+    const containerWidth = slider.offsetWidth;
+    let slideIndex = parseInt(slider.dataset.slideIndex) || 0;
+    const totalSlides = slides.length;
+
+    slideIndex += n;
+    if (slideIndex >= totalSlides) {
+        slideIndex = 0;
+    } else if (slideIndex < 0) {
+        slideIndex = totalSlides - 1;
+    }
+
+    slides.forEach(slide => {
+        slide.style.transform = `translateX(-${slideIndex * containerWidth}px)`;
+    });
+
+    slider.dataset.slideIndex = slideIndex;
+}
+
+// Défilement automatique pour chaque diaporama toutes les 3 secondes
+sliders.forEach(slider => {
+    setInterval(() => {
+        moveSlide(slider, 1);
+    }, 5000);
+});
+
+// Événements pour les boutons de navigation
+document.querySelectorAll('.prev').forEach(prevBtn => {
+    prevBtn.addEventListener('click', () => {
+        const sliderId = prevBtn.parentElement.querySelector('.product-slider').id;
+        moveSlide(document.getElementById(sliderId), -1);
+    });
+});
+
+document.querySelectorAll('.next').forEach(nextBtn => {
+    nextBtn.addEventListener('click', () => {
+        const sliderId = nextBtn.parentElement.querySelector('.product-slider').id;
+        moveSlide(document.getElementById(sliderId), 1);
+    });
+});function acheterProduit(nomProduit) {
+    // Exemple : ajout du produit au panier
+    alert('Vous avez ajouté ' + nomProduit + ' au panier !');
+}function afficherPanier() {
+    let contenuPanier = "Contenu du panier:\n";
+
+    panier.forEach(item => {
+        contenuPanier += `${item.nomProduit} - $${item.prix}\n`;
+    });
+
+    alert(contenuPanier);
+}
+        function afficherPanier() {
+            window.location.href = 'panier.html'; // Rediriger vers la page du panier
+        }
+ </script> 
+          </body>
