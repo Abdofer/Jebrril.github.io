@@ -225,13 +225,11 @@
     .activation-links a:hover {
       color: #ffcc00;
     }
-
     .review-bar {
       display: flex;
       justify-content: center;
       margin-top: 20px;
     }
-
     .star {
       color: #ffcc00;
       font-size: 24px;
