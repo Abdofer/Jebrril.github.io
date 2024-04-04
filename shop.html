@@ -1,4 +1,145 @@
-<head>
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatLive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            background-color: #fff;
+            color: #663399;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            margin: 0;
+            margin-top: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            flex: 0 0 calc(33.33% - 20px); /* Utilisation de calc pour calculer la largeur avec espace */
+            margin: 10px; /* Ajout de marge autour des produits */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .slide img {
+            width: auto;
+            max-height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-decoration: none;
+        }
+
+        .prev:before {
+            content: "prev";
+        }
+
+        .next:before {
+            content: "next";
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .activation-links a {
+            margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .activation-links a:hover {
+            color: #ffcc00;
+        }
+
+        .review-bar {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .star {
+            color: #ffcc00;
+            font-size: 24px;
+            margin: 0 2px;
+        }
+    </style>
+    <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>CatLive</title>
